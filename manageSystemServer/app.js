@@ -37,5 +37,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+//设置端口
+app.set('PORT',888);
+//监听3000端口
+app.listen(888);
 module.exports = app;
