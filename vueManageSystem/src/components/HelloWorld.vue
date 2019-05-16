@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <el-button type="success" @click="$router.push('/login')">登录页面</el-button>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
