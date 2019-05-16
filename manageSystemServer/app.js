@@ -18,8 +18,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
+/*
+* 在routes里面添加路由文件
+* 就要在app.js里面 require引入改文件，存入变量
+* 并且在要app。use（‘路径’，路径变量名称）
+* */
+app.use('/api', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
