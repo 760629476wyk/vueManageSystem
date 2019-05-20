@@ -13,7 +13,7 @@ module.exports = {
     //代理 将api都转发到888的后台
     proxyTable: {
       '/api': {
-        target: 'http://localhost:888/api',
+        target: 'http://localhost:3000/api',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
@@ -24,7 +24,7 @@ module.exports = {
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,//启动后浏览器自动打开页面
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
