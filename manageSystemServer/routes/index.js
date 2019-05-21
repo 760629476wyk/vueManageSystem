@@ -11,8 +11,21 @@ router.post('/login', function (req, res, next) {
     //拿到用户名密码
     let {username, password} = req.body
     //查询数据库
-    var querystr = "select * from user"
+    var querystr = `select * from user where username='${username}' and password='${password}'`
     connection.query(querystr, [username, password], (err, data) => {
+        //查找失败
+        if (err) throw err;
+        //查询成功
+        if (data) {
+            res.send(data)
+        }
+    })
+})
+//获取用户列表
+router.get('/user/list', function (req, res, next) {
+    //查询数据库
+    var querystr = `select * from user`
+    connection.query(querystr, (err, data) => {
         //查找失败
         if (err) throw err;
         //查询成功

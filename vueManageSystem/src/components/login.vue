@@ -27,6 +27,7 @@
   import {checkLogin} from '@api';
 
   export default {
+    name: 'login',
     data() {
       var validatePass = (rule, value, callback) => {
         if (value === '') {
@@ -72,6 +73,7 @@
     },
     methods: {
       submitForm(formName) {
+        var _this = this
         this.$refs[formName].validate((valid) => {
           if (valid) {
             var para = {username: this.form.username, password: this.form.password}
@@ -80,7 +82,14 @@
                 type: 'success',
                 message: '登陆成功！'
               })
-              this.$router.push('/user/list')
+              //将用户信息放到本地存储里面去
+              localStorage.setItem('userInfo',JSON.stringify(res[0]));
+              //将本地存储的用户信息放到变量，存入state
+              var userInfo = JSON.parse(localStorage.getItem('userInfo'))
+              //将用户信息放到state里面去
+
+              _this.$store.commit('SAVE_USERINFO',userInfo)
+              _this.$router.push('/user/home')
             }, err => {
               this.$message({
                 type: 'error',
