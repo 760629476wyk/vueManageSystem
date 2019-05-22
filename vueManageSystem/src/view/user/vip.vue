@@ -1,11 +1,11 @@
 <template>
-  <div class="userList">
+  <div class="userVip">
     <el-table
       :data="tableData"
       style="width: 100%">
       <el-table-column
         prop="username"
-        label="用户名"
+        label="vip用户名"
         width="180">
       </el-table-column>
       <el-table-column
@@ -42,19 +42,19 @@
         </template>
       </el-table-column>
     </el-table>
-
   </div>
 </template>
 
 <script>
   import {} from '@api';
-  import {mapState, mapActions} from 'vuex';
+  import {mapState, mapActions, mapGetters} from 'vuex';
 
   export default {
+    name: 'userVip',
     computed:{
+      ...mapGetters(['vipUsers']),
       ...mapState({userLsit: state => state.userList})
     },
-    name: 'list',
     data() {
       return {
         tableData: []
@@ -65,19 +65,13 @@
       ...mapActions(['GET_USERLIST']),
       edit(index, data){
         //修改用户信息
-
       },
       delete(index, data){
         //删除此条数据
-
       }
     },
     created(){
-      //掉方法获取datalist
-      this.GET_USERLIST().then(() => {
-        console.log(this.userLsit)
-        this.tableData = this.userLsit
-      })
+        this.tableData = this.vipUsers
     },
     mounted() {
 
@@ -89,8 +83,8 @@
     padding: 0;
     margin: 0;
   }
-
-  html, body, #app, .userList {
+  html, body, #app, .userVip {
     height: 100%;
   }
+
 </style>

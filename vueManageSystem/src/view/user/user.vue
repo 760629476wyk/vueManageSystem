@@ -11,7 +11,7 @@
           <el-submenu index="/user/home">
             <template slot="title"><i class="el-icon-user"></i>账号管理</template>
             <el-menu-item index="/user/list">用户列表</el-menu-item>
-            <el-menu-item index="/user/add">添加用户</el-menu-item>
+            <el-menu-item index="/user/vip">高级用户</el-menu-item>
             <el-menu-item index="/user/passwordEdit">修改密码</el-menu-item>
           </el-submenu>
           <el-submenu index="2">

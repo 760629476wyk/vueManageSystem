@@ -6,7 +6,7 @@ const HelloWorld = () => import("@/components/HelloWorld")
 const login = () => import('@/components/login')
 const user = () => import('@/view/user/user')
 const userList = () => import('@/view/user/list')
-const userAdd = () => import('@/view/user/add')
+const userVip = () => import('@/view/user/vip')
 const passwordEdit = () => import('@/view/user/passwordEdit')
 const home = () => import('@/view/user/home')
 // 注册路由
@@ -42,9 +42,9 @@ export default new Router({
         component: home
       },
       {
-      path: '/user/add',
-      name: 'userAdd',
-      component: userAdd,
+      path: '/user/vip',
+      name: 'userVip',
+      component: userVip,
       },
       {
       path: '/user/passwordEdit',

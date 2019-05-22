@@ -37,9 +37,16 @@ const actions = {
     })
   }
 }
+
+const getters = {
+    vipUsers : state => {
+      return state.userList.filter(user => user.vip<5)
+    }
+}
 //创建仓库 暴露出去
 export default new Vuex.Store({
   state,
   mutations,
-  actions
+  actions,
+  getters
 })
